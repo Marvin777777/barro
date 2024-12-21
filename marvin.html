@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Cat Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f8f9fa;
+    }
+    h1 {
+      color: #343a40;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 20px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    img {
+      margin-top: 20px;
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #343a40;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Random Cat Photo Generator</h1>
+  <button id="generate-cat">Get a Random Cat</button>
+  <div>
+    <img id="cat-photo" src="https://via.placeholder.com/400x300?text=Click+for+a+cat!" alt="Random Cat">
+  </div>
+
+  <script>
+    const button = document.getElementById('generate-cat');
+    const img = document.getElementById('cat-photo');
+
+    
+    const catApiUrl = 'https://api.thecatapi.com/v1/images/search';
+
+    
+    button.addEventListener('click', async () => {
+      try {
+        const response = await fetch(catApiUrl);
+        const data = await response.json();
+        img.src = data[0].url;
+      } catch (error) {
+        console.error('Error fetching the cat image:', error);
+        img.alt = 'Failed to load cat image.';
+      }
+    });
+  </script>
+</body>
+</html>
