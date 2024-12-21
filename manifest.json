@@ -1,0 +1,15 @@
+{
+    "name": "Random Cat Generator",
+    "short_name": "Random Cat",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "icons": [
+      {
+        "src": "./2A/cat.jpg",
+        "sizes": "72x72",
+        "type": "image/jpg"
+      }
+    ],
+    "background_color": "#ddd",
+    "theme_color": "#333"
+}
